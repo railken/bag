@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Bag;
+namespace Railken;
 
 /**
  * Parameter is a container for key/value pairs.
@@ -96,10 +96,14 @@ class Bag implements \IteratorAggregate, \Countable
      *
      * @param string $key   The key
      * @param mixed  $value The value
+     *
+     * @return $this
      */
     public function set($key, $value)
     {
         $this->parameters[$key] = $value;
+
+        return $this;
     }
 
     /**
@@ -130,10 +134,14 @@ class Bag implements \IteratorAggregate, \Countable
      * Removes a parameter.
      *
      * @param string $key The key
+     *
+     * @return $this
      */
     public function remove($key)
     {
         unset($this->parameters[$key]);
+
+        return $this;
     }
 
     /**
