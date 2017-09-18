@@ -1,0 +1,12 @@
+{
+    "name": "railken/bag",
+    "type": "library",
+    "require": {
+    },
+    "autoload": {
+        "psr-4" : {
+            "Railken\\" : "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
