@@ -3,7 +3,7 @@
 namespace Railken;
 
 /**
- * Parameter is a container for key/value pairs.
+ * Bag is a container for key/value pairs.
  */
 class Bag implements \IteratorAggregate, \Countable
 {
@@ -33,9 +33,7 @@ class Bag implements \IteratorAggregate, \Countable
      */
     public function __get($key)
     {
-        if ($value = $this->get($key)) {
-            return $value;
-        }
+        return $this->get($key);
     }
 
     /**
