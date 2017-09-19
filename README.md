@@ -1,6 +1,6 @@
 # Bag
 
-Inspired by [ParameterBag](https://github.com/symfony/http-foundation/blob/master/ParameterBag.php) i decided to create a new repository that contains a similiar class with a few adjustments.
+Inspired by [ParameterBag](https://github.com/symfony/http-foundation/blob/master/ParameterBag.php) I decided to create a new repository that contains a similiar class with a few adjustments.
 
 
 ## Requirements
