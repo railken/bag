@@ -162,5 +162,15 @@ class Bag implements \IteratorAggregate, \Countable
         return count($this->parameters);
     }
 
-
+    /**
+     * Get only specific parameters by keys
+     *
+     * @param array $keys
+     *
+     * @return this
+    */
+    public function only(array $keys)
+    {
+        return new self(array_intersect_key($this->parameters, array_flip($keys)));
+    }
 }
