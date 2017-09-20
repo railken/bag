@@ -37,6 +37,18 @@ class Bag implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Dynamically set a value for a a parameter
+     *
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function __set($key, $value)
+    {
+        return $this->set($key, $value);
+    }
+
+    /**
      * Returns the parameters.
      *
      * @return array An array of parameters
