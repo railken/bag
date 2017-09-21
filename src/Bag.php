@@ -183,6 +183,6 @@ class Bag implements \IteratorAggregate, \Countable
     */
     public function only(array $keys)
     {
-        return new self(array_intersect_key($this->parameters, array_flip($keys)));
+        return new static(array_intersect_key($this->parameters, array_flip($keys)));
     }
 }
