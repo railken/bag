@@ -19,9 +19,12 @@ class Bag implements \IteratorAggregate, \Countable
      *
      * @param array $parameters An array of parameters
      */
-    public function __construct(array $parameters = [])
+    public function __construct($parameters = [])
     {
-        $this->parameters = $parameters;
+        if ($parameters instanceof static)
+            $this->parameters = $parameters->all();
+        else 
+            $this->parameters = $parameters;
     }
 
     /**
