@@ -21,9 +21,9 @@ class Bag implements \IteratorAggregate, \Countable
      */
     public function __construct($parameters = [])
     {
-        if ($parameters instanceof static)
+        if ($parameters instanceof self)
             $this->parameters = $parameters->all();
-        else 
+        else
             $this->parameters = $parameters;
     }
 
