@@ -13,6 +13,16 @@ class Bag implements \IteratorAggregate, \Countable
      * @var array
      */
     protected $parameters;
+    
+    /**
+     * New instance
+     *
+     * @return $this
+     */
+    public static function factory($parameters)
+    {
+        return new static($parameters);
+    }
 
     /**
      * Constructor.
@@ -21,10 +31,11 @@ class Bag implements \IteratorAggregate, \Countable
      */
     public function __construct($parameters = [])
     {
-        if ($parameters instanceof self)
+        if ($parameters instanceof self) {
             $this->parameters = $parameters->all();
-        else
+        } else {
             $this->parameters = $parameters;
+        }
     }
 
     /**
