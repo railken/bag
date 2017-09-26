@@ -188,4 +188,18 @@ class Bag implements \IteratorAggregate, \Countable
     {
         return new static(array_intersect_key($this->parameters, array_flip($keys)));
     }
+
+    /**
+     * Filter current bag with specific parameters by keys
+     *
+     * @param array $keys
+     *
+     * @return this
+    */
+    public function filter(array $keys)
+    {
+        $this->parameters = array_intersect_key($this->parameters, array_flip($keys));
+
+        return $this;
+    }
 }
