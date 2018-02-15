@@ -73,6 +73,16 @@ class Bag implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Returns the parameters.
+     *
+     * @return array An array of parameters
+     */
+    public function toArray()
+    {
+        return $this->all();
+    }
+    
+    /**
      * Returns the parameter keys.
      *
      * @return array An array of parameter keys
