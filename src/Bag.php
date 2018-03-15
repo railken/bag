@@ -17,9 +17,11 @@ class Bag implements \IteratorAggregate, \Countable
     /**
      * New instance
      *
-     * @return $this
+     * @param array $parameters An array of parameters
+     *
+     * @return self
      */
-    public static function factory($parameters)
+    public static function factory($parameters = [])
     {
         return new static($parameters);
     }
@@ -31,10 +33,12 @@ class Bag implements \IteratorAggregate, \Countable
      */
     public function __construct($parameters = [])
     {
-        if ($parameters instanceof self) {
+        if (is_array($parameters)) {
+            $this->parameters = $parameters;
+        } else if ($parameters instanceof self) {
             $this->parameters = $parameters->all();
         } else {
-            $this->parameters = $parameters;
+            throw new \InvalidArgumentException("Bag::__construct() expects array or Bag.");
         }
     }
 
@@ -96,20 +100,28 @@ class Bag implements \IteratorAggregate, \Countable
      * Replaces the current parameters by a new set.
      *
      * @param array $parameters An array of parameters
+     *
+     * @return $this
      */
     public function replace(array $parameters = [])
     {
         $this->parameters = $parameters;
+
+        return $this;
     }
 
     /**
      * Adds parameters.
      *
      * @param array $parameters An array of parameters
+     *
+     * @return $this
      */
     public function add(array $parameters = array())
     {
         $this->parameters = array_replace($this->parameters, $parameters);
+
+        return $this;
     }
 
     /**
@@ -203,7 +215,7 @@ class Bag implements \IteratorAggregate, \Countable
      *
      * @param array $keys
      *
-     * @return this
+     * @return self
     */
     public function only(array $keys)
     {
@@ -215,7 +227,7 @@ class Bag implements \IteratorAggregate, \Countable
      *
      * @param array $keys
      *
-     * @return this
+     * @return $this
     */
     public function filter(array $keys)
     {
