@@ -37,7 +37,7 @@ $bag = new Bag();
 $bag = new Bag(['foo' => '1']);
 
 # Setting
-$bag->set('foo', 1)->set('fee, 2);
+$bag->set('foo', 1)->set('fee', 2);
 
 # Getting
 $bag->foo; #1
