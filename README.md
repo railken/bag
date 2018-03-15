@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/railken/bag.svg?branch=master)](https://travis-ci.org/railken/bag)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/railken/bag/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/railken/bag/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/railken/bag/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/railken/bag/?branch=master)
-[![Style CI](https://styleci.io/repos/107004461/shield?branch=master)](https://styleci.io/repos/107004461)
+[![Style CI](https://styleci.io/repos/103975718/shield?branch=master)](https://styleci.io/repos/103975718)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Latest stable](https://img.shields.io/packagist/v/railken/bag.svg?style=flat-square)](https://packagist.org/packages/railken/bag)
 [![PHP](https://img.shields.io/travis/php-v/railken/bag.svg)](https://secure.php.net/)
