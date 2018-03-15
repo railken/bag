@@ -29,7 +29,7 @@ class Bag implements \IteratorAggregate, \Countable
     /**
      * Constructor.
      *
-     * @param array $parameters An array of parameters
+     * @param self|array $parameters An array of parameters
      */
     public function __construct($parameters = [])
     {
