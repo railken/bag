@@ -6,18 +6,82 @@ use Railken\Bag;
 class BasicTest extends TestCase
 {
 
-    public function testInstance()
+    public function testInitialize()
     {
-        $bag = new Bag();
+        $bag = new Bag(['x' => 1]);
+
+        $this->assertEquals(['x' => 1], $bag->all());
+        $this->assertEquals(['x' => 1], $bag->toArray());
+
+        $this->assertEquals(['x' => 1], Bag::factory($bag)->toArray());
+    }
+
+
+    public function testExceptionInvalidArgumentInstance()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        new Bag(5);
+    }
+
+    public function testSetAndGet()
+    {
+        $bag = new Bag(['x' => 1]);
+
+        $bag->set('x', 2);
+
+        $this->assertEquals(2, $bag->get('x'));
+        $this->assertEquals(true, $bag->has('x'));
+        $this->assertEquals(true, $bag->exists('x'));
+        $bag->remove('x');
+        $this->assertEquals(false, $bag->has('x'));
+
+    }
+
+    public function testKeys()
+    {
+        $bag = new Bag(['x' => 1, 'y' => 2]);
+
+        $this->assertEquals(['x', 'y'], $bag->keys());
+    }
+
+    public function testReplace()
+    {
+        $bag = new Bag(['x' => 1]);
+
+        $this->assertEquals(['y' => 2], $bag->replace(['y' => 2])->toArray());
+    }
+
+    public function testAdd()
+    {
+        $bag = new Bag(['x' => 1]);
+
+        $this->assertEquals(['x' => 1, 'y' => 2], $bag->add(['y' => 2])->toArray());
+    }
+
+    public function testCount()
+    {
+        $bag = new Bag(['x' => 1]);
+
+        $this->assertEquals(1, $bag->count());
+        $this->assertEquals(2, $bag->set('y', 1)->count());
     }
 
     public function testOnly()
-    {   
+    {
+        $bag = new Bag(['x' => 1, 'y' => 2]);
 
-        $bag = new Bag(['username' => 'admin', 'password' => 'admin', 'email' => 'admin@admin.it']);
+        $new_bag = $bag->only(['x']);
 
-        $bag1 = $bag->only(['username']);
-
-        $this->assertEquals(['username' => 'admin'], $bag1->all());
+        $this->assertEquals(['x' => 1], $new_bag->toArray());
+        $this->assertEquals(['x' => 1, 'y' => 2], $bag->toArray());
     }
+
+    public function testFilter()
+    {
+        $bag = new Bag(['x' => 1, 'y' => 2]);
+
+        $this->assertEquals(['x' => 1], $bag->filter(['x'])->toArray());
+    }
+
+
 }
