@@ -17,7 +17,7 @@ class Bag implements \IteratorAggregate, \Countable
     /**
      * New instance.
      *
-     * @param array $parameters An array of parameters
+     * @param self|array $parameters An array of parameters
      *
      * @return self
      */
