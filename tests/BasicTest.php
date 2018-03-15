@@ -32,6 +32,10 @@ class BasicTest extends TestCase
         $this->assertEquals(true, $bag->exists('x'));
         $bag->remove('x');
         $this->assertEquals(false, $bag->has('x'));
+
+        $bag->x = 5;
+        $this->assertEquals(5, $bag->x);
+
     }
 
     public function testKeys()
