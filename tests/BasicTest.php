@@ -2,9 +2,9 @@
 
 namespace Railken\Bag\Tests;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Railken\Bag;
-use InvalidArgumentException;
 
 class BasicTest extends TestCase
 {
@@ -38,7 +38,6 @@ class BasicTest extends TestCase
 
         $bag->x = 5;
         $this->assertEquals(5, $bag->x);
-
     }
 
     public function testKeys()
