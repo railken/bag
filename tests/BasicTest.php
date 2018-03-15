@@ -1,7 +1,10 @@
 <?php
 
+namespace Railken\Bag\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Railken\Bag;
+use InvalidArgumentException;
 
 class BasicTest extends TestCase
 {
