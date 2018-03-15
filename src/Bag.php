@@ -13,9 +13,9 @@ class Bag implements \IteratorAggregate, \Countable
      * @var array
      */
     protected $parameters;
-    
+
     /**
-     * New instance
+     * New instance.
      *
      * @param array $parameters An array of parameters
      *
@@ -35,15 +35,15 @@ class Bag implements \IteratorAggregate, \Countable
     {
         if (is_array($parameters)) {
             $this->parameters = $parameters;
-        } else if ($parameters instanceof self) {
+        } elseif ($parameters instanceof self) {
             $this->parameters = $parameters->all();
         } else {
-            throw new \InvalidArgumentException("Bag::__construct() expects array or Bag.");
+            throw new \InvalidArgumentException('Bag::__construct() expects array or Bag.');
         }
     }
 
     /**
-     * Dynamically access a parameter
+     * Dynamically access a parameter.
      *
      * @param string $key
      *
@@ -55,7 +55,7 @@ class Bag implements \IteratorAggregate, \Countable
     }
 
     /**
-     * Dynamically set a value for a a parameter
+     * Dynamically set a value for a a parameter.
      *
      * @param string $key
      *
@@ -85,7 +85,7 @@ class Bag implements \IteratorAggregate, \Countable
     {
         return $this->all();
     }
-    
+
     /**
      * Returns the parameter keys.
      *
@@ -117,7 +117,7 @@ class Bag implements \IteratorAggregate, \Countable
      *
      * @return $this
      */
-    public function add(array $parameters = array())
+    public function add(array $parameters = [])
     {
         $this->parameters = array_replace($this->parameters, $parameters);
 
@@ -165,7 +165,7 @@ class Bag implements \IteratorAggregate, \Countable
     }
 
     /**
-     * Alias @has
+     * Alias @has.
      *
      * @param string $key The key
      *
@@ -211,24 +211,24 @@ class Bag implements \IteratorAggregate, \Countable
     }
 
     /**
-     * Get only specific parameters by keys
+     * Get only specific parameters by keys.
      *
      * @param array $keys
      *
      * @return self
-    */
+     */
     public function only(array $keys)
     {
         return new static(array_intersect_key($this->parameters, array_flip($keys)));
     }
 
     /**
-     * Filter current bag with specific parameters by keys
+     * Filter current bag with specific parameters by keys.
      *
      * @param array $keys
      *
      * @return $this
-    */
+     */
     public function filter(array $keys)
     {
         $this->parameters = array_intersect_key($this->parameters, array_flip($keys));

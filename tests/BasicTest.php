@@ -5,7 +5,6 @@ use Railken\Bag;
 
 class BasicTest extends TestCase
 {
-
     public function testInitialize()
     {
         $bag = new Bag(['x' => 1]);
@@ -15,7 +14,6 @@ class BasicTest extends TestCase
 
         $this->assertEquals(['x' => 1], Bag::factory($bag)->toArray());
     }
-
 
     public function testExceptionInvalidArgumentInstance()
     {
@@ -34,7 +32,6 @@ class BasicTest extends TestCase
         $this->assertEquals(true, $bag->exists('x'));
         $bag->remove('x');
         $this->assertEquals(false, $bag->has('x'));
-
     }
 
     public function testKeys()
@@ -82,6 +79,4 @@ class BasicTest extends TestCase
 
         $this->assertEquals(['x' => 1], $bag->filter(['x'])->toArray());
     }
-
-
 }
