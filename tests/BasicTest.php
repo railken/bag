@@ -39,7 +39,6 @@ class BasicTest extends TestCase
         $bag->x = 5;
         $this->assertEquals(5, $bag->x);
 
-
         $bag->set('x.1', 2);
         $this->assertEquals(['x' => ['1' => 2]], $bag->toArray());
         $this->assertEquals(2, $bag->get('x.1'));
