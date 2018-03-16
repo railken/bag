@@ -6,6 +6,9 @@ addons:
   apt:
     packages:
       - libxml2-utils
+  code_climate:
+    repo_token:
+      secure: "WuLjrGVCtdPtP2ObQVYfYtW53nNGWUmtlrvutxZBVD21A0q6lxV9E3lw5qwlh1zM7uWcenvJ4HuUSFeFJznuYPOVBtoBeEtggOa6GBPz2MI5FP3t+b9DtJYpSZ2YRC7dMvuYBkgguf1qB9ZGbn1evIsihIOaedWrPmitpPKeHRlBD6qF5HZsXnwNCLE1yGVD9PPI/C1DJaYnWnuCl/HS3JJxejPUPQ5Jb2rCERxJQPuS+bO3KGorwgY8lRDkiKBGiwbk0OXiiDpn08UaQuGVeQh9pLY57udIh5UgXljo7mhj2JFinnAVHrzeWdcvI2EP6YCNiweY0qD0SyKngqIP37d0t/LyzyiIj3fbedCI/eA8lXRGkzfM5Flc1YGPc+a34fcXYsRY5slvoZTs7FsQ6rRi2oiaHjXtNhnf8hAigroUXV8PUxlzw/h3zFd+YvPKWblMT1dtsRODTF8Mbe6sD9N0YVn7uu2t17ZAitQfNLsTpuZx9QV2n3F5BUXTRGusYrB98o/wNMq6RiQKZ1YmV/wCSKxOfeZ72bFbQODroGGGWFg7mkpjDylF8XeZFWQKeA12authlqAFLu08lUmQZRE+tBSIsg0tlQXlPpvZeUwJJi0lyYaZVAtL/hvgb6xxdLDObmXrsaJXF0rDXGNXqh2/216P3wMKxZI640U7Imo="
 
 php:
   - 7.0
@@ -36,11 +39,11 @@ before_script:
   - echo 'assert.exception=On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 script:
-  - ./vendor/bin/phpunit --coverage-clover=coverage.xml
+  - ./vendor/bin/phpunit --coverage-text --coverage-clover=build/logs/clover.xml
   - ./vendor/bin/phpunit --configuration ./build/travis-ci-fail.xml > /dev/null; if [ $? -eq 0 ]; then echo "SHOULD FAIL"; false; else echo "fail checked"; fi;
-
-notifications:
-  email: false
+  
+after_script:
+  - ./vendor/bin/test-reporter
 
 jobs:
   include:
