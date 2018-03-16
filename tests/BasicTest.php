@@ -38,6 +38,19 @@ class BasicTest extends TestCase
 
         $bag->x = 5;
         $this->assertEquals(5, $bag->x);
+
+
+        $bag->set('x.1', 2);
+        $this->assertEquals(['x' => ['1' => 2]], $bag->toArray());
+        $this->assertEquals(2, $bag->get('x.1'));
+        $this->assertEquals(true, $bag->has('x.1'));
+        $this->assertEquals(false, $bag->has('x.2'));
+
+        $bag->set('x', ['1' => 2]);
+        $this->assertEquals(['x' => ['1' => 2]], $bag->toArray());
+        $this->assertEquals(2, $bag->get('x.1'));
+        $this->assertEquals(true, $bag->has('x.1'));
+        $this->assertEquals(false, $bag->has('x.2'));
     }
 
     public function testKeys()
