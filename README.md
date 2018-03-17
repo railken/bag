@@ -1,8 +1,8 @@
 # Bag
 
 [![Build Status](https://travis-ci.org/railken/bag.svg?branch=master)](https://travis-ci.org/railken/bag)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/railken/bag/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/railken/bag/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/railken/bag/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/railken/bag/?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6f62d8c43195d612be0c/maintainability)](https://codeclimate.com/github/railken/bag/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6f62d8c43195d612be0c/test_coverage)](https://codeclimate.com/github/railken/bag/test_coverage)
 [![Style CI](https://styleci.io/repos/103975718/shield?branch=master)](https://styleci.io/repos/103975718)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Latest stable](https://img.shields.io/packagist/v/railken/bag.svg?style=flat-square)](https://packagist.org/packages/railken/bag)
