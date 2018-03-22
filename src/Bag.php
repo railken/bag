@@ -140,14 +140,16 @@ class Bag implements \IteratorAggregate, \Countable
 
         $data = $this->parameters;
 
-        foreach (explode('.', $key) as $pkey) {
-            if (!isset($data[$pkey]) || !is_array($data)) {
+        foreach (explode(".", $key) as $pkey) {
+
+            if (!array_key_exists($pkey, $data) || !is_array($data)) {
                 return $default;
             }
 
             $data = $data[$pkey];
         }
 
+        
         return $data;
 
         $this->has($key) ? $this->parameters[$key] : $default;
@@ -163,14 +165,14 @@ class Bag implements \IteratorAggregate, \Countable
      */
     public function set($key, $value)
     {
-        $keys = explode('.', $key);
+        $keys = explode(".", $key);
 
         $data = &$this->parameters;
 
         while (count($keys) > 1) {
             $pkey = $keys[0];
 
-            if (!isset($data[$pkey]) || !is_array($data[$pkey])) {
+            if (!array_key_exists($pkey, $data) || !is_array($data[$pkey])) {
                 $data[$pkey] = [];
             }
 
@@ -194,14 +196,15 @@ class Bag implements \IteratorAggregate, \Countable
     {
         $data = $this->parameters;
 
-        foreach (explode('.', $key) as $pkey) {
-            if (!isset($data[$pkey]) || !is_array($data)) {
+        foreach (explode(".", $key) as $pkey) {
+            if (!array_key_exists($pkey, $data) || !is_array($data)) {
                 return false;
             }
 
             $data = $data[$pkey];
         }
 
+        
         return true;
     }
 

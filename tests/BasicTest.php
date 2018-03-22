@@ -50,6 +50,10 @@ class BasicTest extends TestCase
         $this->assertEquals(2, $bag->get('x.1'));
         $this->assertEquals(true, $bag->has('x.1'));
         $this->assertEquals(false, $bag->has('x.2'));
+
+        $bag->set('x', ['1' => null]);
+        $this->assertEquals(true, $bag->has('x.1'));
+        $this->assertEquals(null, $bag->get('x.1'));
     }
 
     public function testKeys()
