@@ -17,7 +17,7 @@ class Bag implements \IteratorAggregate, \Countable
     /**
      * New instance.
      *
-     * @param self|array $parameters An array of parameters
+     * @param self|array|\stdClass|object $parameters An array of parameters
      *
      * @return self
      */
@@ -29,7 +29,7 @@ class Bag implements \IteratorAggregate, \Countable
     /**
      * Constructor.
      *
-     * @param self|array $parameters An array of parameters
+     * @param self|array|\stdClass|object $parameters An array of parameters
      */
     public function __construct($parameters = [])
     {
@@ -37,7 +37,7 @@ class Bag implements \IteratorAggregate, \Countable
             $this->parameters = $parameters;
         } elseif ($parameters instanceof self) {
             $this->parameters = $parameters->all();
-        } elseif ($parameters instanceof \stdClass) {
+        } elseif ($parameters instanceof \stdClass || is_object($parameters)) {
             $this->parameters = json_decode(json_encode($parameters), true);
         } else {
             throw new \InvalidArgumentException('Bag::__construct() expects array, stdClass or Bag.');
