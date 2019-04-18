@@ -278,4 +278,16 @@ class Bag implements \IteratorAggregate, \Countable
 
         return $this;
     }
+
+    /**
+     * Merge the current bag with another
+     *
+     * @param array $parameters
+     *
+     * @return static
+     */
+    public function merge($parameters)
+    {
+        return static::factory(array_merge($this->all(), static::factory($parameters)->all()));
+    }
 }
