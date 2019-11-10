@@ -208,6 +208,21 @@ class Bag implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Require the given parameter, if doesn't exists throw an exception
+     *
+     * @param string $key The key
+     * 
+     */
+    public function require($key)
+    {
+        if ($this->has($key)) {
+            return $this->get($key);
+        }
+
+        throw new \UnexpectedValueException(sprintf("Missing required key: %s", $key));
+    }
+
+    /**
      * Alias @has.
      *
      * @param string $key The key
