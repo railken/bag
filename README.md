@@ -13,7 +13,7 @@ Inspired by [ParameterBag](https://github.com/symfony/http-foundation/blob/maste
 
 ## Requirements
 
-PHP 7.0.0 or later.
+PHP 8.1 or later.
 
 ## Composer
 
@@ -44,7 +44,6 @@ $bag->foo; #1
 $bag->get('bar', 3); #3
  
 ```
-
 
 ## License
 
