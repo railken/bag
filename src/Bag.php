@@ -143,7 +143,7 @@ class Bag implements \IteratorAggregate, \Countable
         $data = $this->parameters;
 
         foreach (explode('.', $key) as $pkey) {
-            if (!array_key_exists($pkey, $data) || !is_array($data)) {
+            if (!is_array($data) || !array_key_exists($pkey, $data)) {
                 return $default;
             }
 
